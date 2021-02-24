@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-mapping>
+
+	<class name="User" table="et_users">
+		<id name="user_id" column="user_id"></id>
+		<property name="first_name" column="first_name" />
+		<property name="last_name" column="last_name" />
+		<property name="email" column="email" />
+		<property name="password" column="password" />
+	</class>
+	
+</hibernate-mapping>
