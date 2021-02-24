@@ -1,7 +1,26 @@
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+//@NamedQueries({
+//	@NamedQuery(
+//			name = "findById",
+//			query = "from User u where u.user_id > :user_id"
+//			)
+//})
+
+@NamedNativeQueries({
+	@NamedNativeQuery(
+			name = "findById",
+			query = "select * from et_users e where e.user_id > :user_id",
+			resultClass = User.class
+			)
+})
 
 @Entity
 @Table(name = "et_users")

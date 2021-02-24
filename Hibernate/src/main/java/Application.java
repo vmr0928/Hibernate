@@ -26,6 +26,8 @@ public class Application {
 		//Opening a session with the help of sessionfactory object
 		Session session = sf.openSession();
 		
+		
+		
 //		//Begining the trsnsaction
 //		Transaction tx = session.beginTransaction();
 //		
@@ -45,8 +47,11 @@ public class Application {
 //		String query = "from User";
 //		Query selectQuery = session.createQuery(query);
 		
-		Criteria criteria = session.createCriteria(User.class).add(Restrictions.gt("user_id", 2));
-		List<User> results = criteria.list();
+		Query namedQuery = session.getNamedQuery("findById").setInteger("user_id", 3);
+		
+		
+//		Criteria criteria = session.createCriteria(User.class).add(Restrictions.gt("user_id", 2));
+		List<User> results = namedQuery.getResultList();
 		
 		
 		for(User user: results) {
